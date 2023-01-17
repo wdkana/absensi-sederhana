@@ -11,7 +11,7 @@ if ($status != "login") {
 
 if (isset($_POST['logout'])) {
   session_destroy();
-  header("location:../index.php?terimakasih sudah berkunjung");
+  header("location:../index.php?message=terimakasih sudah berkunjung");
 }
 
 ?>
@@ -23,6 +23,7 @@ if (isset($_POST['logout'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style-dashboard.css" />
   <title>DASHBOARD</title>
 </head>
 
@@ -38,6 +39,9 @@ if (isset($_POST['logout'])) {
   <i>Halo <?= $nama_lengkap ?></i>
   <p>Status kepegawaian: <?= $role ?></p>
   <br />
+
+  <!-- showing a attendances data -->
+  <?php include("absensi.php"); ?>
 
   <form action="" method="POST">
     <button type="submit" name="logout">logout</button>
